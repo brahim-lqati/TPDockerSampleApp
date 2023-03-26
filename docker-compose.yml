@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  nginxproxy:
+    image: jwilder/nginx-proxy
+    volumes:
+      -   /var/run/docker.sock:/tmp/docker.sock
+    ports:
+      - "8080:80"
+    tty: true
+    restart: always
+
+  instance1:
+    build: .
+    image: app_take_image
+    environment:
+      VIRTUAL_HOST: takepic
+    depends_on:
+      - nginxproxy
+    tty: true
+  instance2:
+    build: .
+    image: app_take_image
+    environment:
+      VIRTUAL_HOST: takepic
+    depends_on:
+      - nginxproxy
+    tty: true

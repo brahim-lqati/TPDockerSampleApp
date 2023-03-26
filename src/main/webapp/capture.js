@@ -25,12 +25,12 @@
     photo = document.getElementById('photo');
     startbutton = document.getElementById('startbutton');
     sendbutton = document.getElementById('sendbutton');
-    navigator.getMedia = ( navigator.getUserMedia ||
+    navigatorgetMedia = ( navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
                            navigator.mozGetUserMedia ||
                            navigator.msGetUserMedia);
 
-    navigator.getMedia(
+    navigator.getUserMedia(
       {
         video: true,
         audio: false
